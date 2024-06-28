@@ -1,10 +1,46 @@
-## Setup
+# Express for TVO
+Express using ES6 and Babel.
 
-1. Run `npm install` to install the dependencies
-2. `npm run dev` to start the server in watch mode
-3. node --experimental-specifier-resolution=node dist/server.js
+### Packages/Middleware
+```
+{
+  "name": "tvo-express-es6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
+}
+```
 
-## Instructions
+### Features
+  - Based on node's popular framework EXPRESS
+  - Route based API layout
+  - CORS ready for localhost development
+  - Linting equipped
 
-GET: localhost:3001/weather
-POST: localhost:3001/weather
+### Routes
+```
+  -> main
+  -> api
+```
+
+### How to Run
+  ```
+  > npm install
+  > npm run build
+  > npm run start
+  ```
+
+### Dockerizing this app is coming soon!
