@@ -1,11 +1,17 @@
 import express from "express";
+import bodyParser from "body-parser";
+import apiRoutes from "./routes/api";
+import cors from 'cors';
+
 const app = express();
-const PORT = 3001;
+const port = process.env.PORT || 3001;
 
-app.get('/', (req, res) => {
-    res.send('This is my server using the ES6 syntax')
+app.use(cors());
+app.use(bodyParser.json({ limit: "100mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+
+app.use("/", apiRoutes);        // Mounting API routes
+
+app.listen(port, () => {
+  console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
 });
-
-app.listen(PORT, () => {
-    console.log(`Server is running on Port ${PORT}`)
-})
